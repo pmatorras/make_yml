@@ -1,9 +1,9 @@
 campaign:
-  name:  QCD_PT-1000_MuEnrichedPt5_EE
+  name: QCD_PT-1000_MuEnrichedPt5_EE
   crab_template: template_crab.py
 
   # User specific
-  workArea: winter22_ QCD_PT-1000_MuEnrichedPt5_EE_yml
+  workArea: summer22_QCD_PT-1000_MuEnrichedPt5_EE_yml
   storageSite: T1_DE_KIT_Disk
   outLFNDirBase: /store/user/pmatorra/PFNano
   voGroup: dcms # or leave empty

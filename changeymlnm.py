@@ -63,8 +63,10 @@ for sample in samples.split(','):
             else: 
                 print ("json", json_,"doesnt exist")
                 exit()
-            if '2022E' in sample: i_file = 'card_example_dataE.yml'
-            if '2022F' in sample or '2022G' in sample: i_file = 'card_example_dataFG.yml'
+            print(isData, bool('2022E' in sample))
+            if '2022E' in sample: 
+                i_file = 'card_example_dataE.yml'
+            elif '2022F' in sample or '2022G' in sample: i_file = 'card_example_dataFG.yml'
             else: i_file = 'card_example_dataABCD.yml'
     else: 
         if '/' in args.i_file:
@@ -83,7 +85,8 @@ for sample in samples.split(','):
     if isData:
         line_dict['data'] = 'True'
         workarea ='Run2022'+sample.split('/Run2022')[1].split('-')[0]
-    line_dict['workArea'] = 'winter22_'+workarea+'_yml'
+    workarea = workarea.replace(' ','')
+    line_dict['workArea'] = 'summer22_'+workarea+'_yml'
     line_dict['name']     = workarea
 
     #Write to new file

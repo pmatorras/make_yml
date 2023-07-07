@@ -3,7 +3,7 @@ campaign:
   crab_template: template_crab.py
 
   # User specific
-  workArea: winter22_Run2022F_yml
+  workArea: summer22_Run2022F_yml
   storageSite: T1_DE_KIT_Disk
   outLFNDirBase: /store/user/pmatorra/PFNano
   voGroup: dcms # or leave empty
