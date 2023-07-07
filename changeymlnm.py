@@ -15,7 +15,6 @@ def modify_text_file(file_i, line_dict):
     # Write the modified lines back to the file
     print(file_i)
     with open(file_i, 'w') as file:
-        print(lines)
         file.writelines(lines)
 # Example usage:
 
@@ -45,9 +44,9 @@ for sample in samples.split(','):
     isData = False 
     isMC   = False
     i_fol  = ''
+    f_fol  = 'final_yml/'
     if 'Run2022' in sample: isData = True
     if 'Run3'    in sample: isMC   = True
-    
     if isData is False and isMC is False: 
         print ('something wrong')
         continue
@@ -83,13 +82,14 @@ for sample in samples.split(','):
         if isEE: workarea+= '_EE'
     if isData:
         line_dict['data'] = 'True'
-        workarea ='Run2022'+sample.split('/Run2022')[0].replace('/','')
+        workarea ='Run2022'+sample.split('/Run2022')[1].split('-')[0]
     line_dict['workArea'] = 'winter22_'+workarea+'_yml'
     line_dict['name']     = workarea
 
     #Write to new file
-    file_path = i_fol+i_file 
-    outputfile = (workarea+'.yml').replace('\'','').replace(' ','')
+    file_path  = i_fol+i_file 
+    outputfile = f_fol+(workarea+'.yml').replace('\'','').replace(' ','')
+    print(outputfile, workarea, sample)
     print('Input file: ', file_path,'\n')
     print('Changing the following lines to')
     os.system('cp '+file_path+' '+outputfile)
